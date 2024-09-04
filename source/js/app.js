@@ -1,3 +1,20 @@
+// 禁用页面复制功能
+document.addEventListener('copy', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  
+  // alert("为防止不良抄袭，本站页面已禁用复制，只保留代码块的复制功能！");
+  VolantisApp.message("已禁用复制",
+    "为防止不良抄袭，本站页面已禁用复制，只保留代码块的复制功能！",
+    {
+      icon: volantis.GLOBAL_CONFIG.plugins.message.copyright.icon,
+      transitionIn: 'flipInX',
+      transitionOut: 'flipOutX',
+      displayMode: 1
+    }
+  );
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   volantis.requestAnimationFrame(() => {
     VolantisApp.init();
